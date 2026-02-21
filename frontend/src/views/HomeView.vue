@@ -11,7 +11,7 @@
         </div>
         <h1 class="hero-title">
           I'm <span class="hero-name">Shurlee</span>,<br />
-          a <span class="hero-role">Full-Stack Developer</span>
+          a <span class="hero-role">Full-Stack Developer?</span>
         </h1>
         <div class="hero-rule"></div>
         <p class="hero-sub">
@@ -160,7 +160,7 @@ const projects = [
     title: 'Mobile Personal Profile',
     desc: 'A mobile-responsive personal profile application built with Flutter, compiled into an APK — hands-on experience with cross-platform mobile development.',
     tags: ['Flutter', 'Dart', 'Mobile', 'APK'],
-    link: '#',
+    link: 'https://github.com/Esprecion/MOBPROG-IT242-Personal-WEB',
     linkLabel: '// GitHub',
     live: null,
   },
