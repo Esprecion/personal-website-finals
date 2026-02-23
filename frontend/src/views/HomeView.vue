@@ -201,24 +201,79 @@ function handleKonami(e) {
 }
 
 function spawnWalker() {
+  // Dark overlay
+  const overlay = document.createElement('div')
+  overlay.style.cssText = `
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    z-index: 9998;
+    pointer-events: none;
+    transition: background 0.3s ease;
+  `
+  document.body.appendChild(overlay)
+  setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.6)', 50)
+
+  // Zombie face
   const walker = document.createElement('div')
   walker.innerHTML = '🧟'
   walker.style.cssText = `
     position: fixed;
-    bottom: 60px;
-    left: -60px;
-    font-size: 3rem;
+    top: 50%;
+    left: -200px;
+    transform: translateY(-50%) scale(1);
+    font-size: 12rem;
     z-index: 9999;
-    animation: walkerRun 4s linear forwards;
     pointer-events: none;
+    transition: left 0.4s cubic-bezier(0.2, 0, 0.8, 1), font-size 0.4s ease;
+    filter: drop-shadow(0 0 40px rgba(139,0,0,0.9));
   `
   document.body.appendChild(walker)
-  setTimeout(() => walker.remove(), 4000)
+
+  // Slam in
+  setTimeout(() => {
+    walker.style.left = '50%'
+    walker.style.transform = 'translateY(-50%) translateX(-50%) scale(1.2)'
+    walker.style.fontSize = '18rem'
+  }, 50)
+
+  // Scream text
+  const scream = document.createElement('div')
+  scream.innerHTML = '🩸 THEY\'RE COMING 🩸'
+  scream.style.cssText = `
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8b0000;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 0 30px rgba(139,0,0,0.8);
+  `
+  document.body.appendChild(scream)
+  setTimeout(() => scream.style.opacity = '1', 300)
+
+  // Clean up
+  setTimeout(() => {
+    walker.style.left = '120%'
+    walker.style.fontSize = '6rem'
+    overlay.style.background = 'rgba(0,0,0,0)'
+    scream.style.opacity = '0'
+  }, 2000)
+
+  setTimeout(() => {
+    walker.remove()
+    overlay.remove()
+    scream.remove()
+  }, 2500)
 }
-
-onMounted(() => window.addEventListener('keydown', handleKonami))
-onUnmounted(() => window.removeEventListener('keydown', handleKonami))
-
 </script>
 
 <style scoped>
