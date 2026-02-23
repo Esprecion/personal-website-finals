@@ -145,60 +145,6 @@
 </template>
 
 <script setup>
-const projects = [
-  {
-    num: '01',
-    title: 'TechZone Inventory System',
-    desc: 'A group project built for a real hypothetical client — a full POS and inventory management system with analytics, and dual-database architecture.',
-    tags: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'HTML/CSS'],
-    link: 'https://github.com/sheilacheng04/Techzone-Inventory-system',
-    linkLabel: '// GitHub',
-    live: null,
-  },
-  {
-    num: '02',
-    title: 'Mobile Personal Profile',
-    desc: 'A mobile-responsive personal profile application built with Flutter, compiled into an APK — hands-on experience with cross-platform mobile development.',
-    tags: ['Flutter', 'Dart', 'Mobile', 'APK'],
-    link: 'https://github.com/Esprecion/MOBPROG-IT242-Personal-WEB',
-    linkLabel: '// GitHub',
-    live: null,
-  },
-  {
-    num: '03',
-    title: 'Ramsey',
-    desc: 'A storyboarding project centered on the school mascot — developing narrative, character design, and the groundwork for a potential future game.',
-    tags: ['Storyboard', 'Game Design', 'Canva'],
-    link: 'https://www.canva.com/design/DAHBxEUdnAk/Be8HYycsTbgTRm6tpjP6dg/edit?utm_content=DAHBxEUdnAk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
-    linkLabel: '// View on Canva',
-    live: null,
-  },
-]
-
-const skillGroups = [
-  { label: 'Frontend', icon: '⚡', items: ['Vue.js', 'HTML5', 'CSS3', 'JavaScript', 'Flutter'] },
-  { label: 'Backend', icon: '⚙', items: ['Node.js', 'NestJS', 'Express', 'REST APIs'] },
-  { label: 'Database', icon: '🗄', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'MySQL'] },
-  { label: 'Tools', icon: '🔧', items: ['Git', 'GitHub', 'Vite', 'Vercel', 'VS Code', 'Canva'] },
-]
-
-// Konami Code Easter Egg
-import { onMounted, onUnmounted } from 'vue'
-
-const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight']
-let konamiIndex = 0
-
-function handleKonami(e) {
-  if (e.key === konamiCode[konamiIndex]) {
-    konamiIndex++
-    if (konamiIndex === konamiCode.length) {
-      spawnWalker()
-      konamiIndex = 0
-    }
-  } else {
-    konamiIndex = 0
-  }
-}
 
 function spawnWalker() {
   // Dark overlay
@@ -274,6 +220,63 @@ function spawnWalker() {
     scream.remove()
   }, 2500)
 }
+
+const projects = [
+  {
+    num: '01',
+    title: 'TechZone Inventory System',
+    desc: 'A group project built for a real hypothetical client — a full POS and inventory management system with analytics, and dual-database architecture.',
+    tags: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'HTML/CSS'],
+    link: 'https://github.com/sheilacheng04/Techzone-Inventory-system',
+    linkLabel: '// GitHub',
+    live: null,
+  },
+  {
+    num: '02',
+    title: 'Mobile Personal Profile',
+    desc: 'A mobile-responsive personal profile application built with Flutter, compiled into an APK — hands-on experience with cross-platform mobile development.',
+    tags: ['Flutter', 'Dart', 'Mobile', 'APK'],
+    link: 'https://github.com/Esprecion/MOBPROG-IT242-Personal-WEB',
+    linkLabel: '// GitHub',
+    live: null,
+  },
+  {
+    num: '03',
+    title: 'Ramsey',
+    desc: 'A storyboarding project centered on the school mascot — developing narrative, character design, and the groundwork for a potential future game.',
+    tags: ['Storyboard', 'Game Design', 'Canva'],
+    link: 'https://www.canva.com/design/DAHBxEUdnAk/Be8HYycsTbgTRm6tpjP6dg/edit?utm_content=DAHBxEUdnAk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+    linkLabel: '// View on Canva',
+    live: null,
+  },
+]
+
+const skillGroups = [
+  { label: 'Frontend', icon: '⚡', items: ['Vue.js', 'HTML5', 'CSS3', 'JavaScript', 'Flutter'] },
+  { label: 'Backend', icon: '⚙', items: ['Node.js', 'NestJS', 'Express', 'REST APIs'] },
+  { label: 'Database', icon: '🗄', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'MySQL'] },
+  { label: 'Tools', icon: '🔧', items: ['Git', 'GitHub', 'Vite', 'Vercel', 'VS Code', 'Canva'] },
+]
+
+// Konami Code Easter Egg
+import { onMounted, onUnmounted } from 'vue'
+
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight']
+let konamiIndex = 0
+
+function handleKonami(e) {
+  if (e.key === konamiCode[konamiIndex]) {
+    konamiIndex++
+    if (konamiIndex === konamiCode.length) {
+      spawnWalker()
+      konamiIndex = 0
+    }
+  } else {
+    konamiIndex = 0
+  }
+}
+
+
 </script>
 
 <style scoped>
