@@ -145,120 +145,6 @@
 </template>
 
 <script setup>
-
-function spawnWalker() {
-  // Dark overlay
-  const overlay = document.createElement('div')
-  overlay.style.cssText = `
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0);
-    z-index: 9998;
-    pointer-events: none;
-    transition: background 0.3s ease;
-  `
-  document.body.appendChild(overlay)
-  setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.6)', 50)
-
-  // Zombie face
-  const walker = document.createElement('div')
-  walker.innerHTML = '🧟'
-  walker.style.cssText = `
-    position: fixed;
-    top: 50%;
-    left: -200px;
-    transform: translateY(-50%) scale(1);
-    font-size: 12rem;
-    z-index: 9999;
-    pointer-events: none;
-    transition: left 0.4s cubic-bezier(0.2, 0, 0.8, 1), font-size 0.4s ease;
-    filter: drop-shadow(0 0 40px rgba(139,0,0,0.9));
-  `
-  document.body.appendChild(walker)
-
-  // Slam in
-  setTimeout(() => {
-    walker.style.left = '50%'
-    walker.style.transform = 'translateY(-50%) translateX(-50%) scale(1.2)'
-    walker.style.fontSize = '18rem'
-  }, 50)
-
-  // Scream text
-  const scream = document.createElement('div')
-  scream.innerHTML = '🩸 THEY\'RE COMING 🩸'
-  scream.style.cssText = `
-    position: fixed;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #8b0000;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    z-index: 10000;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    text-shadow: 0 0 30px rgba(139,0,0,0.8);
-  `
-  document.body.appendChild(scream)
-  setTimeout(() => scream.style.opacity = '1', 300)
-
-  // Clean up
-  setTimeout(() => {
-    walker.style.left = '120%'
-    walker.style.fontSize = '6rem'
-    overlay.style.background = 'rgba(0,0,0,0)'
-    scream.style.opacity = '0'
-  }, 2000)
-
-  setTimeout(() => {
-    walker.remove()
-    overlay.remove()
-    scream.remove()
-  }, 2500)
-}
-
-const projects = [
-  {
-    num: '01',
-    title: 'TechZone Inventory System',
-    desc: 'A group project built for a real hypothetical client — a full POS and inventory management system with analytics, and dual-database architecture.',
-    tags: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'HTML/CSS'],
-    link: 'https://github.com/sheilacheng04/Techzone-Inventory-system',
-    linkLabel: '// GitHub',
-    live: null,
-  },
-  {
-    num: '02',
-    title: 'Mobile Personal Profile',
-    desc: 'A mobile-responsive personal profile application built with Flutter, compiled into an APK — hands-on experience with cross-platform mobile development.',
-    tags: ['Flutter', 'Dart', 'Mobile', 'APK'],
-    link: 'https://github.com/Esprecion/MOBPROG-IT242-Personal-WEB',
-    linkLabel: '// GitHub',
-    live: null,
-  },
-  {
-    num: '03',
-    title: 'Ramsey',
-    desc: 'A storyboarding project centered on the school mascot — developing narrative, character design, and the groundwork for a potential future game.',
-    tags: ['Storyboard', 'Game Design', 'Canva'],
-    link: 'https://www.canva.com/design/DAHBxEUdnAk/Be8HYycsTbgTRm6tpjP6dg/edit?utm_content=DAHBxEUdnAk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
-    linkLabel: '// View on Canva',
-    live: null,
-  },
-]
-
-const skillGroups = [
-  { label: 'Frontend', icon: '⚡', items: ['Vue.js', 'HTML5', 'CSS3', 'JavaScript', 'Flutter'] },
-  { label: 'Backend', icon: '⚙', items: ['Node.js', 'NestJS', 'Express', 'REST APIs'] },
-  { label: 'Database', icon: '🗄', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'MySQL'] },
-  { label: 'Tools', icon: '🔧', items: ['Git', 'GitHub', 'Vite', 'Vercel', 'VS Code', 'Canva'] },
-]
-
-// Konami Code Easter Egg
 import { onMounted, onUnmounted } from 'vue'
 
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight']
@@ -276,7 +162,58 @@ function handleKonami(e) {
   }
 }
 
+function spawnWalker() {
+  const overlay = document.createElement('div')
+  overlay.style.cssText = `position:fixed;inset:0;background:rgba(0,0,0,0);z-index:9998;pointer-events:none;transition:background 0.3s ease;`
+  document.body.appendChild(overlay)
+  setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.6)', 50)
 
+  const walker = document.createElement('div')
+  walker.innerHTML = '🧟'
+  walker.style.cssText = `position:fixed;top:50%;left:-200px;transform:translateY(-50%);font-size:12rem;z-index:9999;pointer-events:none;transition:left 0.4s cubic-bezier(0.2,0,0.8,1),font-size 0.4s ease;filter:drop-shadow(0 0 40px rgba(139,0,0,0.9));`
+  document.body.appendChild(walker)
+
+  setTimeout(() => {
+    walker.style.left = '50%'
+    walker.style.transform = 'translateY(-50%) translateX(-50%)'
+    walker.style.fontSize = '18rem'
+  }, 50)
+
+  const scream = document.createElement('div')
+  scream.innerHTML = '🩸 THEY\'RE COMING 🩸'
+  scream.style.cssText = `position:fixed;top:20%;left:50%;transform:translateX(-50%);font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:#8b0000;letter-spacing:6px;text-transform:uppercase;z-index:10000;pointer-events:none;opacity:0;transition:opacity 0.3s ease;text-shadow:0 0 30px rgba(139,0,0,0.8);white-space:nowrap;`
+  document.body.appendChild(scream)
+  setTimeout(() => scream.style.opacity = '1', 300)
+
+  setTimeout(() => {
+    walker.style.left = '120%'
+    walker.style.fontSize = '6rem'
+    overlay.style.background = 'rgba(0,0,0,0)'
+    scream.style.opacity = '0'
+  }, 2000)
+
+  setTimeout(() => {
+    walker.remove()
+    overlay.remove()
+    scream.remove()
+  }, 2500)
+}
+
+const projects = [
+  { num: '01', title: 'TechZone Inventory System', desc: 'A group project built for a real hypothetical client — a full POS and inventory management system with analytics, and dual-database architecture.', tags: ['Node.js', 'Express', 'MongoDB', 'MySQL', 'HTML/CSS'], link: 'https://github.com/sheilacheng04/Techzone-Inventory-system', linkLabel: '// GitHub', live: null },
+  { num: '02', title: 'Mobile Personal Profile', desc: 'A mobile-responsive personal profile application built with Flutter, compiled into an APK — hands-on experience with cross-platform mobile development.', tags: ['Flutter', 'Dart', 'Mobile', 'APK'], link: 'https://github.com/Esprecion/MOBPROG-IT242-Personal-WEB', linkLabel: '// GitHub', live: null },
+  { num: '03', title: 'Ramsey', desc: 'A storyboarding project centered on the school mascot — developing narrative, character design, and the groundwork for a potential future game.', tags: ['Storyboard', 'Game Design', 'Canva'], link: 'https://www.canva.com/design/DAHBxEUdnAk/Be8HYycsTbgTRm6tpjP6dg/edit', linkLabel: '// View on Canva', live: null },
+]
+
+const skillGroups = [
+  { label: 'Frontend', icon: '⚡', items: ['Vue.js', 'HTML5', 'CSS3', 'JavaScript', 'Flutter'] },
+  { label: 'Backend', icon: '⚙', items: ['Node.js', 'NestJS', 'Express', 'REST APIs'] },
+  { label: 'Database', icon: '🗄', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'MySQL'] },
+  { label: 'Tools', icon: '🔧', items: ['Git', 'GitHub', 'Vite', 'Vercel', 'VS Code', 'Canva'] },
+]
+
+onMounted(() => window.addEventListener('keydown', handleKonami))
+onUnmounted(() => window.removeEventListener('keydown', handleKonami))
 </script>
 
 <style scoped>
