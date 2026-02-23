@@ -169,7 +169,7 @@ function spawnWalker() {
   setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.6)', 50)
 
   const walker = document.createElement('div')
-  walker.innerHTML = '🧟'
+  walker.innerHTML = '<img src="/zombie.jpeg" style="width:300px;height:auto;" />'
   walker.style.cssText = `position:fixed;top:50%;left:-200px;transform:translateY(-50%);font-size:12rem;z-index:9999;pointer-events:none;transition:left 0.4s cubic-bezier(0.2,0,0.8,1),font-size 0.4s ease;filter:drop-shadow(0 0 40px rgba(139,0,0,0.9));`
   document.body.appendChild(walker)
 
