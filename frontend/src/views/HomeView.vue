@@ -181,6 +181,44 @@ const skillGroups = [
   { label: 'Database', icon: '🗄', items: ['Supabase', 'PostgreSQL', 'MongoDB', 'MySQL'] },
   { label: 'Tools', icon: '🔧', items: ['Git', 'GitHub', 'Vite', 'Vercel', 'VS Code', 'Canva'] },
 ]
+
+// Konami Code Easter Egg
+import { onMounted, onUnmounted } from 'vue'
+
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight']
+let konamiIndex = 0
+
+function handleKonami(e) {
+  if (e.key === konamiCode[konamiIndex]) {
+    konamiIndex++
+    if (konamiIndex === konamiCode.length) {
+      spawnWalker()
+      konamiIndex = 0
+    }
+  } else {
+    konamiIndex = 0
+  }
+}
+
+function spawnWalker() {
+  const walker = document.createElement('div')
+  walker.innerHTML = '🧟'
+  walker.style.cssText = `
+    position: fixed;
+    bottom: 60px;
+    left: -60px;
+    font-size: 3rem;
+    z-index: 9999;
+    animation: walkerRun 4s linear forwards;
+    pointer-events: none;
+  `
+  document.body.appendChild(walker)
+  setTimeout(() => walker.remove(), 4000)
+}
+
+onMounted(() => window.addEventListener('keydown', handleKonami))
+onUnmounted(() => window.removeEventListener('keydown', handleKonami))
+
 </script>
 
 <style scoped>
